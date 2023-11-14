@@ -1,0 +1,4587 @@
+{
+    "zabbix_export": {
+        "version": "6.4",
+        "host_groups": [
+            {
+                "uuid": "63042e89dc5d476daf8065bae391656e",
+                "name": "Comercial/Webservice"
+            },
+            {
+                "uuid": "f2481361f99448eea617b7b1d4765566",
+                "name": "Discovered hosts"
+            },
+            {
+                "uuid": "4d2c65dba6284e289b630ffb3cff79ef",
+                "name": "Exercito"
+            },
+            {
+                "uuid": "a571c0d144b14fd4a87a9d9b2aa9fcd6",
+                "name": "IOS/Applications"
+            },
+            {
+                "uuid": "0510f74a52464137abc13cff35dccf22",
+                "name": "IOS/Banco de Dados"
+            },
+            {
+                "uuid": "2e8460e7342d42649cac3fa9c7b6c30c",
+                "name": "IOS/Centro \u2013 Oeste"
+            },
+            {
+                "uuid": "748ad4d098d447d492bb935c907f652f",
+                "name": "IOS/Databases"
+            },
+            {
+                "uuid": "86209513951745789f5b0ab48eb5bd2c",
+                "name": "IOS/Detran"
+            },
+            {
+                "uuid": "5b2e0f5c1dfb418baed964e87d438e6c",
+                "name": "IOS/DNS"
+            },
+            {
+                "uuid": "06ab6f4a657a445b928df3865e09d94f",
+                "name": "IOS/Firewall"
+            },
+            {
+                "uuid": "7fa00a51342648b7b941d790a3223fd0",
+                "name": "IOS/Licitacoes"
+            },
+            {
+                "uuid": "42a3ddbf36a040e781d7191f80f2347f",
+                "name": "IOS/Link"
+            },
+            {
+                "uuid": "894dc763cd5443d2a3e299853cb18529",
+                "name": "IOS/Mensageria"
+            },
+            {
+                "uuid": "c420cecb89ea4e2db4411905a1021048",
+                "name": "IOS/Monitoring PDPJ"
+            },
+            {
+                "uuid": "63748dc6dc2e4f21bb7e45725e5753bb",
+                "name": "IOS/Nordeste"
+            },
+            {
+                "uuid": "5ff9ab7577b941d79842d131f111fbdb",
+                "name": "IOS/Norte"
+            },
+            {
+                "uuid": "2194e7bafe9b4bf4a89f522b93170146",
+                "name": "IOS/Personalizados"
+            },
+            {
+                "uuid": "efc56b5f7d844679bdd750d8dc9ec7fe",
+                "name": "IOS/Servicenow"
+            },
+            {
+                "uuid": "80f88c58df4e4ceb9ad6060cde886a33",
+                "name": "IOS/Sistemas"
+            },
+            {
+                "uuid": "e6cb9908da3b4f46a4448dbd01df8fc1",
+                "name": "IOS/Sudeste"
+            },
+            {
+                "uuid": "9723b60f1d2e4877997f533b3303e9b1",
+                "name": "IOS/Sul"
+            },
+            {
+                "uuid": "e004f4dd0710481882eb806b45ebe581",
+                "name": "IOS/Tarefas"
+            },
+            {
+                "uuid": "25a2505a51354ee980e6aea09b122f60",
+                "name": "IOS/Vendas"
+            },
+            {
+                "uuid": "a3dd4af869c9426fbad50bc0729710b9",
+                "name": "IOS/WebSite"
+            },
+            {
+                "uuid": "6f6799aa69e844b4b3918f779f2abf08",
+                "name": "IOS/Zabbix servers"
+            },
+            {
+                "uuid": "5dde9431a2d54723b91ae8f78c02fc2f",
+                "name": "POC/CITEX"
+            },
+            {
+                "uuid": "ebf9338b8ff84f68970236472a40d8bf",
+                "name": "Servicos/Linux"
+            },
+            {
+                "uuid": "4a4fd2bd306c43cd99ae281dd1648cc0",
+                "name": "Website"
+            }
+        ],
+        "hosts": [
+            {
+                "host": "1 CTA",
+                "name": "1\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "1\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "http://www.1cta.eb.mil.br/",
+                        "description": "1\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-30.031801311795",
+                    "location_lon": "-51.235993964497"
+                }
+            },
+            {
+                "host": "1CTA",
+                "name": "1\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(50|52)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "2 CTA",
+                "name": "2\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "2\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "http://www.2cta.eb.mil.br/",
+                        "description": "2\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-22.901803124017",
+                    "location_lon": "-43.189655519251"
+                }
+            },
+            {
+                "host": "2CTA",
+                "name": "2\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(29|22)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "3 CTA",
+                "name": "3\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "3\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://3cta.eb.mil.br/",
+                        "description": "3\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.569884868268",
+                    "location_lon": "-46.616165179020"
+                }
+            },
+            {
+                "host": "3CTA",
+                "name": "3\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(2|4)$"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "4 CTA",
+                "name": "4\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "4\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://4cta.eb.mil.br/",
+                        "description": "4\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-3.0821049603565",
+                    "location_lon": "-60.074688139120"
+                }
+            },
+            {
+                "host": "4CTA",
+                "name": "4\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(4|6)$"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "5 CTA",
+                "name": "5\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "5\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://5cta.eb.mil.br/",
+                        "description": "5\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-8.0675993304459",
+                    "location_lon": "-34.954952594631"
+                }
+            },
+            {
+                "host": "5CTA",
+                "name": "5\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(7|9)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "6 CTA",
+                "name": "6\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "6\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://6cta.eb.mil.br/",
+                        "description": "6\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-20.464314468692",
+                    "location_lon": "-54.636960446310"
+                }
+            },
+            {
+                "host": "6CTA",
+                "name": "6\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(8|10)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "7 CTA",
+                "name": "7\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "7\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "http://www.7cta.eb.mil.br/",
+                        "description": "7\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.772242817583",
+                    "location_lon": "-47.931468375647"
+                }
+            },
+            {
+                "host": "7CTA",
+                "name": "7\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(11|13)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "11 CTA",
+                "name": "11\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "11\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "http://www.11ct.eb.mil.br/",
+                        "description": "11\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-25.527933007421",
+                    "location_lon": "-49.305469049304"
+                }
+            },
+            {
+                "host": "11CTA",
+                "name": "11\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(12|14)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "21 CTA",
+                "name": "21\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "21\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://21ct.eb.mil.br/",
+                        "description": "21\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-19.939713644003",
+                    "location_lon": "-43.954354436667"
+                }
+            },
+            {
+                "host": "21CTA",
+                "name": "21\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(13|16)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "41 CTA",
+                "name": "41\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "41\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://41ct.eb.mil.br/",
+                        "description": "41\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-1.4127903737791",
+                    "location_lon": "-48.443479051503"
+                }
+            },
+            {
+                "host": "41CTA",
+                "name": "41\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$NET.IF.IFDESCR.MATCHES}",
+                        "value": "^GigabitEthernet1/0/(32|48)"
+                    },
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "51 CTA",
+                "name": "51\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "51\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://51ct.eb.mil.br/",
+                        "description": "51\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-12.973129423992",
+                    "location_lon": "-38.444245244828"
+                }
+            },
+            {
+                "host": "51CTA",
+                "name": "51\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "52 CTA",
+                "name": "52\u00ba CTA",
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "52\u00ba CTA",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://52ct.eb.mil.br/",
+                        "description": "52\u00ba Centro de Telem\u00e1tica de \u00c1rea"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-3.7537129739287",
+                    "location_lon": "-38.535101183218"
+                }
+            },
+            {
+                "host": "52CTA",
+                "name": "52\u00baCTA - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776118742942",
+                    "location_lon": "-47.928573076688"
+                }
+            },
+            {
+                "host": "Acesso Sistema SP",
+                "name": "Acesso Sistema (SP)",
+                "description": "Sao Paulo (SP)",
+                "groups": [
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Sao Paulo (SP)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.sp.gov.br/wps/portal/portaldetran/cidadao/home/!ut/p/z1/jdBdi4JQEAbgX-Ot8-qROHZ3-tK1Fbdi085NWNhRUE-orX-_aGNhoaS5m-F5Z2BIUkKyTn8KlXaFrtPy1u_kaB-sMPV9bn9Ga8_FioeRZ29sIGQU3wFelADJd_IDQA6vj0neCXOwcSeWAJ9vFxB8zRbWPLKxxAP8nfCs2RTCdZzwI1gyuOwBBo4EJFWpD7__EPWBcUWyyU5ZkzXmpbmN8647t2MDBvq-N5XWqszMo64MPIvkuu0o-S_pXH0nKL6qmLfiCmRqh2E!/dz/d5/L2dBISEvZ0FBIS9nQSEh/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.548685361425",
+                    "location_lon": "-46.618719287585",
+                    "notes": ","
+                }
+            },
+            {
+                "host": "Arduino_IOT",
+                "name": "IOT Arduino (DF)",
+                "templates": [
+                    {
+                        "name": "Arduino_Temp"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Personalizados"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Black Integrator Developer 2.2",
+                "name": "Black Integrator Developer 2.2 (SP)",
+                "templates": [
+                    {
+                        "name": "Sistema App ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/Tarefas"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.111",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.548685361425",
+                    "location_lon": "-46.618719287585"
+                }
+            },
+            {
+                "host": "Blue Devices 2.0",
+                "name": "Blue Devices 2.0 (SC)",
+                "templates": [
+                    {
+                        "name": "Sistema App ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/Tarefas"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.110",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-27.474571788719",
+                    "location_lon": "-48.714442381475"
+                }
+            },
+            {
+                "host": "CITEX",
+                "name": "CITEX",
+                "templates": [
+                    {
+                        "name": "Linux by Zabbix agent"
+                    },
+                    {
+                        "name": "Zabbix server health"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "Exercito"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "dns": "s-labstag01",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.776129067637",
+                    "location_lon": "-47.928540890182"
+                }
+            },
+            {
+                "host": "CITEX - LINK",
+                "name": "CITEX - LINK",
+                "templates": [
+                    {
+                        "name": "Network Generic Device by SNMP"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "192.168.210.29",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SNMP_COMMUNITY}",
+                        "value": "Camelo13"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "correio.treinamento.lab.com",
+                "name": "Correio (DF)",
+                "templates": [
+                    {
+                        "name": "Windows services discovery"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Zabbix servers"
+                    },
+                    {
+                        "name": "Servicos/Linux"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "dns": "correio.treinamento.lab.com",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "discovery_rules": [
+                    {
+                        "name": "Discover network services",
+                        "type": "EXTERNAL",
+                        "key": "tcp-port-scan-lld.sh[{HOST.CONN}]",
+                        "delay": "2h",
+                        "lifetime": "2d",
+                        "item_prototypes": [
+                            {
+                                "name": "{#SERVICO} service is running",
+                                "type": "SIMPLE",
+                                "key": "net.tcp.service[tcp,,{#PORTA}]",
+                                "delay": "2m",
+                                "history": "7d",
+                                "interface_ref": "if1",
+                                "tags": [
+                                    {
+                                        "tag": "application",
+                                        "value": "port"
+                                    },
+                                    {
+                                        "tag": "status",
+                                        "value": "{#SERVICO}"
+                                    }
+                                ],
+                                "trigger_prototypes": [
+                                    {
+                                        "expression": "last(/correio.treinamento.lab.com/net.tcp.service[tcp,,{#PORTA}])=0",
+                                        "name": "{#PORTA} service is down",
+                                        "priority": "HIGH",
+                                        "tags": [
+                                            {
+                                                "tag": "status",
+                                                "value": "port"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Correio Boa Vista",
+                "name": "Correio Boa Vista (RR)",
+                "description": "Boa Vista (RR)",
+                "templates": [
+                    {
+                        "name": "Windows services discovery"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Mensageria"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Boa Vista (RR)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rr.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Boa Vista"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "2.82091245111471",
+                    "location_lon": "-60.671503958062"
+                }
+            },
+            {
+                "host": "Correio Joao Pessoa",
+                "name": "Correio Joao Pessoa (PB)",
+                "description": "Joao Pessoa (PB)",
+                "templates": [
+                    {
+                        "name": "Windows services discovery"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Mensageria"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Joao Pessoa (PB)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://detran.pb.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Joao Pessoa"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-7.1314147775431",
+                    "location_lon": "-34.875350437133"
+                }
+            },
+            {
+                "host": "Correio Maceio",
+                "name": "Correio Maceio (AL)",
+                "description": "Maceio (AL)",
+                "templates": [
+                    {
+                        "name": "Windows services discovery"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Mensageria"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Maceio (AL)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.al.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Maceio"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-9.6235110867503",
+                    "location_lon": "-35.715814381349"
+                }
+            },
+            {
+                "host": "Correio Porto Velho",
+                "name": "Correio Porto Velho (RO)",
+                "description": "Porto Velho (RO)",
+                "groups": [
+                    {
+                        "name": "IOS/Mensageria"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Porto Velho (RO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ro.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Porto Velho"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-9.6156210540708",
+                    "location_lon": "-65.722739808612"
+                }
+            },
+            {
+                "host": "dbzabbix01.ios.lab.com",
+                "name": "dbzabbix01 (SP)",
+                "ipmi_username": "luis.andre",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    },
+                    {
+                        "name": "MySQL by ODBC"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Banco de Dados"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix01.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "type": "SECRET_TEXT",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.548685361425",
+                    "location_lon": "-46.618719287585"
+                }
+            },
+            {
+                "host": "dbzabbix02.ios.lab.com",
+                "name": "dbzabbix02 (RJ)",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    },
+                    {
+                        "name": "MySQL by ODBC - OLD"
+                    },
+                    {
+                        "name": "Template SGBD MySQL"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Banco de Dados"
+                    },
+                    {
+                        "name": "IOS/Databases"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix01.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "value": "password",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "dbzabbix03.ios.lab.com",
+                "name": "dbzabbix03 (DF)",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    },
+                    {
+                        "name": "MySQL by ODBC - OLD"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Banco de Dados"
+                    },
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Databases"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix01.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "value": "password",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "dbzabbix04.ios.lab.com",
+                "name": "dbzabbix04 (GO)",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    },
+                    {
+                        "name": "Template SGBD MySQL"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Banco de Dados"
+                    },
+                    {
+                        "name": "IOS/Databases"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "items": [
+                    {
+                        "name": "MySQL: Status",
+                        "type": "ODBC",
+                        "key": "db.odbc.select[ping,\"{$MYSQL.DSN}\"]",
+                        "history": "7d",
+                        "params": "select \"1\"",
+                        "preprocessing": [
+                            {
+                                "type": "DISCARD_UNCHANGED_HEARTBEAT",
+                                "parameters": [
+                                    "10m"
+                                ]
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "component",
+                                "value": "application"
+                            },
+                            {
+                                "tag": "component",
+                                "value": "health"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix04.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "value": "password",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Detran Belo Horizonte",
+                "name": "Detran Belo Horizonte (MG)",
+                "description": "Belo Horizonte (MG)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Belo Horizonte (MG)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.mg.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-19.975810545755",
+                    "location_lon": "-44.025400986154"
+                }
+            },
+            {
+                "host": "Detran Boa Vista",
+                "name": "Detran Boa Vista (RR)",
+                "description": "Boa Vista (RR)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Boa Vista (RR)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rr.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Boa Vista"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "2.82091245111471",
+                    "location_lon": "-60.671503958062"
+                }
+            },
+            {
+                "host": "Detran Campo Grande",
+                "name": "Detran Campo Grande (MS)",
+                "description": "Campo Grande (MS)",
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Campo Grande (MS)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ms.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-20.429744220834",
+                    "location_lon": "--54.59571076436"
+                }
+            },
+            {
+                "host": "Detran Espirito Santo",
+                "name": "Detran Espirito Santo (SC)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Espirito Santo (SC)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://detran.es.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "santa catarina"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-27.474571788719",
+                    "location_lon": "-48.714442381475"
+                }
+            },
+            {
+                "host": "Detran Fortaleza",
+                "name": "Detran Fortaleza (CE)",
+                "description": "Fortaleza (CE)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Fortaleza (CE)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ce.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Fortaleza"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-3.7542907022341",
+                    "location_lon": "-38.559232734879"
+                }
+            },
+            {
+                "host": "Detran Palmas",
+                "name": "Detran Palmas (TO)",
+                "description": "Palmas (TO)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Palmas (TO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-10.188788237082",
+                    "location_lon": "-48.335402434053"
+                }
+            },
+            {
+                "host": "Detran Rio de Janeiro",
+                "name": "Detran  Rio de Janeiro (RJ)",
+                "description": "Rio de Janeiro (RJ)",
+                "groups": [
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Rio de Janeiro (RJ)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rj.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-22.902963290565",
+                    "location_lon": "-43.183308988896"
+                }
+            },
+            {
+                "host": "Detran Sao Luis",
+                "name": "Detran Sao Luis (MA)",
+                "description": "Sao Luis (MA)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Sao Luis (MA)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "http://www.detran.ma.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Sao Luis"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-2.5242778635920",
+                    "location_lon": "-44.305876075543"
+                }
+            },
+            {
+                "host": "Detran Vitoria",
+                "name": "Detran Vitoria (ES)",
+                "description": "Vitoria (ES)",
+                "groups": [
+                    {
+                        "name": "IOS/Detran"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Vitoria (ES)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://detran.es.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-20.275325526296",
+                    "location_lon": "-40.30054889123"
+                }
+            },
+            {
+                "host": "DNS1",
+                "name": "DNS1 (GO)",
+                "description": "Goiania (GO)",
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/DNS"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Goiania (GO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.go.gov.br/psw/#/pages/pagina-inicial",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-16.682078965653",
+                    "location_lon": "-49.308538860182"
+                }
+            },
+            {
+                "host": "DNS2",
+                "name": "DNS2 (TO)",
+                "description": "Palmas (TO)",
+                "groups": [
+                    {
+                        "name": "IOS/DNS"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Palmas (TO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-10.188788237082",
+                    "location_lon": "-48.335402434053"
+                }
+            },
+            {
+                "host": "DNS3",
+                "name": "DNS3 (GO)",
+                "description": "Palmas (TO)",
+                "groups": [
+                    {
+                        "name": "IOS/DNS"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Palmas (TO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-10.188788237082",
+                    "location_lon": "-48.335402434053"
+                }
+            },
+            {
+                "host": "DNS4",
+                "name": "DNS4 (TO)",
+                "description": "Cuiaba (MT)",
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/DNS"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Cuiaba (MT)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.mt.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.653850258257",
+                    "location_lon": "-55.978833877616"
+                }
+            },
+            {
+                "host": "e-commerce.2",
+                "name": "e-commerce.2 (submarino)",
+                "description": "Submarino",
+                "groups": [
+                    {
+                        "name": "IOS/Vendas"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Facebook",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://www.submarino.com.br/"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "e-commerce.3",
+                "name": "e-commerce.3 (facebook)",
+                "groups": [
+                    {
+                        "name": "IOS/Vendas"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Facebook",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://pt-br.facebook.com/"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "e-commerce1",
+                "name": "e-commerce1 (Aliexpress)",
+                "description": "AliExpress",
+                "groups": [
+                    {
+                        "name": "IOS/Vendas"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "AliExpress",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://pt.aliexpress.com/"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Firewall Bruce Lee",
+                "name": "Firewall Bruce Lee (SE)",
+                "description": "Aracaju (SE)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Aracaju (SE)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.se.gov.br/#gsc.tab=0",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Aracaju"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-10.938595035169",
+                    "location_lon": "-37.077721959018"
+                }
+            },
+            {
+                "host": "Firewall Chuck Norris",
+                "name": "Firewall Chuck Norris (PA)",
+                "description": "Belem (PA)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Macapa (AP)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ap.gov.br/detranap/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Macapa"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-1.3782064617841",
+                    "location_lon": "-48.440619834106"
+                }
+            },
+            {
+                "host": "Firewall Jack Chan",
+                "name": "Firewall Jack Chan (PR)",
+                "description": "Curitiba (PR)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Sul"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Curitiba (PR)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.pr.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "--25.43081699874",
+                    "location_lon": "-49.211239400474"
+                }
+            },
+            {
+                "host": "Firewall Jet Li",
+                "name": "Firewall Jet Li  (DF)",
+                "description": "Distrito Federal (DF)",
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Distrito Federal (DF)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "http://www.detran.df.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Firewall Schwarzenegger",
+                "name": "Firewall Schwarzenegger (SC)",
+                "description": "Florianopolis (SC)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/Sul"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Florianopolis (SC)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.sc.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-27.474571788719",
+                    "location_lon": "-48.714442381475"
+                }
+            },
+            {
+                "host": "Firewall Stallone",
+                "name": "Firewall Stallone (CE)",
+                "description": "Fortaleza (CE)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Fortaleza (CE)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ce.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Fortaleza"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-3.7542907022341",
+                    "location_lon": "-38.559232734879"
+                }
+            },
+            {
+                "host": "Firewall Steve Segal",
+                "name": "Firewall Steve Segal  (AP)",
+                "description": "Macapa (AP)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Belem (PA)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.pa.gov.br/index_.php",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Belem"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "0.07519670531159",
+                    "location_lon": "-51.055188073849"
+                }
+            },
+            {
+                "host": "Firewall Vandame",
+                "name": "Firewall Vandame (AM)",
+                "description": "Manaus (AM)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Manaus (AM)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.am.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Manaus"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-3.0886690638126",
+                    "location_lon": "-60.015496980101"
+                }
+            },
+            {
+                "host": "Green B.I 3.0",
+                "name": "Green B.I 3.0 (BA)",
+                "templates": [
+                    {
+                        "name": "Sistema App ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Tarefas"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.111",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "HealthCheck",
+                "name": "HealthCheck",
+                "templates": [
+                    {
+                        "name": "Template WebScenario health.3"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Applications"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://sisbajud.cloud.pje.jus.br/actuator/health"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Link Algar.1",
+                "name": "Link Algar .1(AC)",
+                "description": "Cuiaba (MT)",
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Cuiaba (MT)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.mt.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.653850258257",
+                    "location_lon": "-55.978833877616"
+                }
+            },
+            {
+                "host": "Link Algar.2",
+                "name": "Link Algar.2 (AC)",
+                "description": "Rio Branco (AC)",
+                "groups": [
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Rio Branco (AC)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ac.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Rio Branco"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-9.9532822420415",
+                    "location_lon": "-67.823797875900"
+                }
+            },
+            {
+                "host": "Link NetClean.1",
+                "name": "Link NetClean.1 (RO)",
+                "description": "Porto Velho (RO)",
+                "groups": [
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Porto Velho (RO)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ro.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Porto Velho"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-9.6156210540708",
+                    "location_lon": "-65.722739808612"
+                }
+            },
+            {
+                "host": "Link NetClean.2",
+                "name": "Link NetClean.2 (BA)",
+                "groups": [
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Salvador (BA)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ba.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Salvador"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-12.974572921459",
+                    "location_lon": "-38.501404477553"
+                }
+            },
+            {
+                "host": "Link OI.1",
+                "name": "Link OI.1 (RS)",
+                "description": "Porto Alegre (RS)",
+                "groups": [
+                    {
+                        "name": "IOS/Sul"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Porto Alegre (RS)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rs.gov.br/inicial",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-30.103158209964",
+                    "location_lon": "-51.253659899918"
+                }
+            },
+            {
+                "host": "Link OI.2",
+                "name": "Link OI.2 (PE)",
+                "description": "Recife (PE)",
+                "groups": [
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Recife (PE)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.pe.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Recife"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-8.0189374241096",
+                    "location_lon": "-34.943513598159"
+                }
+            },
+            {
+                "host": "Monitoramento Bolsa de Valores",
+                "name": "Monitoramento Bolsa de Valores (DF)",
+                "templates": [
+                    {
+                        "name": "Bolsa de Valores"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Monitoramento Cripto_Ativos",
+                "name": "Monitoramento Cripto Ativos (DF)",
+                "templates": [
+                    {
+                        "name": "API_CRIPTOATIVOS_TEMPLATE"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Monitoramento de licitacoes",
+                "name": "Monitoramento de licitacoes (DF)",
+                "templates": [
+                    {
+                        "name": "Template Monitoramento de Licitacoes"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Licitacoes"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "dns": "s-labstag01",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Monitoring Dependent Item - WEB",
+                "name": "Monitoring Dependent Item  (DF)",
+                "templates": [
+                    {
+                        "name": "Template WebScenario PDPJ"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Monitoring PDPJ"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "Natal Contabil",
+                "name": "Natal Contabil\t(RN)",
+                "description": "Natal (RN)",
+                "groups": [
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Natal (RN)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "http://www.detran.rn.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Natal"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-5.8250309723735",
+                    "location_lon": "-35.242767478178"
+                }
+            },
+            {
+                "host": "Orange Developer 2.2",
+                "name": "Orange Developer 2.2 (DF)",
+                "templates": [
+                    {
+                        "name": "Sistema App ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Tarefas"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "208.84.244.116",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "orangepizero2.1",
+                "name": "Proxy orangepizero2.1 (DF)",
+                "templates": [
+                    {
+                        "name": "Linux by Zabbix agent"
+                    },
+                    {
+                        "name": "Zabbix proxy health"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Zabbix servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.110",
+                        "dns": "orangepizero2",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "orangepizero2.2",
+                "name": "Proxy orangepizero2.2 (SP)",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Sudeste"
+                    },
+                    {
+                        "name": "IOS/Zabbix servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.111",
+                        "dns": "orangepizero2",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.548685361425",
+                    "location_lon": "-46.618719287585"
+                }
+            },
+            {
+                "host": "orangepizero2.3",
+                "name": "Proxy orangepizero2.3 (MA)",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Zabbix servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.110",
+                        "dns": "orangepizero2.3",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Placa EasyIO 01 - FL06",
+                "name": "Placa EasyIO 01 - FL06",
+                "groups": [
+                    {
+                        "name": "Discovered hosts"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "10.6.50.250",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Placa EasyIO 02 - FL06",
+                "name": "Placa EasyIO 02 - FL06",
+                "groups": [
+                    {
+                        "name": "Discovered hosts"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "10.6.50.251",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Radio AirPoint AP2 - DataCenter Indoor",
+                "name": "Radio AirPoint AP2 - DataCenter Indoor",
+                "groups": [
+                    {
+                        "name": "Discovered hosts"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "10.1.32.21",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Radio AirPoint APGuest - Informatica",
+                "name": "Radio AirPoint APGuest - Informatica",
+                "groups": [
+                    {
+                        "name": "Discovered hosts"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "177.107.163.197",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Roteador Fortigate FG80E",
+                "name": "Roteador Fortigate FG80E",
+                "groups": [
+                    {
+                        "name": "Discovered hosts"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "10.0.12.40",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Roteador IntelBras",
+                "name": "Roteador IntelBras (SP)",
+                "ipmi_username": "luis.andre",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Link"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.110",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix01.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-23.548685361425",
+                    "location_lon": "-46.618719287585"
+                }
+            },
+            {
+                "host": "Roteador Nokia",
+                "name": "Roteador Nokia (DF)",
+                "ipmi_username": "luis.andre",
+                "templates": [
+                    {
+                        "name": "ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Link"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.111",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$MYSQL.DSN}",
+                        "value": "dbzabbix01.ios.lab.com",
+                        "description": "System data source name."
+                    },
+                    {
+                        "macro": "{$MYSQL.PASSWORD}",
+                        "description": "MySQL user password."
+                    },
+                    {
+                        "macro": "{$MYSQL.USER}",
+                        "value": "zabbix",
+                        "description": "MySQL username."
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "s-labstag01",
+                "name": "Zabbix Server (DF)",
+                "templates": [
+                    {
+                        "name": "Generic Java JMX"
+                    },
+                    {
+                        "name": "Linux by Zabbix agent"
+                    },
+                    {
+                        "name": "Zabbix server health"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Zabbix servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.200",
+                        "dns": "s-labstag01",
+                        "interface_ref": "if1"
+                    },
+                    {
+                        "type": "JMX",
+                        "ip": "192.168.98.200",
+                        "port": "12345",
+                        "interface_ref": "if2"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "s-labstag01-tomcat",
+                "name": "s-labstag01-tomcat",
+                "templates": [
+                    {
+                        "name": "Apache Tomcat by JMX"
+                    },
+                    {
+                        "name": "Generic Java JMX"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    },
+                    {
+                        "name": "IOS/Zabbix servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "JMX",
+                        "ip": "192.168.98.200",
+                        "port": "12345",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-15.794392645948",
+                    "location_lon": "-47.879012395089"
+                }
+            },
+            {
+                "host": "S-LABWIN2019",
+                "name": "S-LABWIN2019",
+                "templates": [
+                    {
+                        "name": "Windows by Zabbix agent"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Servicenow"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.120",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Servidor de Streem",
+                "name": "Servidor de Streem (YouTube)",
+                "description": "YouTube",
+                "groups": [
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "YouTube",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://www.youtube.com/"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Sistema de comunicacao",
+                "name": "Sistema de Comunica\u00e7\u00e3o (Shield)",
+                "description": "CBN",
+                "groups": [
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "Website"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "CBN",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "{$SITE}",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$SITE}",
+                        "value": "https://cbn.globoradio.globo.com/"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Sistema STG",
+                "name": "Sistema STG (RJ)",
+                "groups": [
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "SGE - PDPJ",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://gateway.stg.cloud.pje.jus.br/previdenciario-api/pdpj/info",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "PDPJ"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "host": "slabubuntu2204",
+                "name": "slabubuntu2204",
+                "templates": [
+                    {
+                        "name": "Linux by Zabbix agent"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Servicenow"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "ip": "192.168.98.121",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Teresina Contabil",
+                "name": "Teresina Contabil (PI)",
+                "description": "Teresina (PI)",
+                "groups": [
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Teresina (PI)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "http://www.detran.pi.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "Teresina"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-5.1169542608219",
+                    "location_lon": "-42.794205916146"
+                }
+            },
+            {
+                "host": "Tomcat",
+                "name": "Tomcat",
+                "templates": [
+                    {
+                        "name": "Apache Tomcat by JMX"
+                    },
+                    {
+                        "name": "Generic Java JMX"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "IOS/Applications"
+                    },
+                    {
+                        "name": "POC/CITEX"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "JMX",
+                        "ip": "192.168.98.200",
+                        "port": "12345",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            },
+            {
+                "host": "Webservice Belem",
+                "name": "Webservice Belem (PA)",
+                "description": "Belem (PA)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Macapa (AP)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ap.gov.br/detranap/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Macapa"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-1.3782064617841",
+                    "location_lon": "-48.440619834106"
+                }
+            },
+            {
+                "host": "Webservice Belo Horizonte",
+                "name": "Webservice Belo Horizonte (MG)",
+                "description": "Belo Horizonte (MG)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Belo Horizonte (MG)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.mg.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-19.975810545755",
+                    "location_lon": "-44.025400986154"
+                }
+            },
+            {
+                "host": "Webservice Boa Vista",
+                "name": "Webservice Boa Vista (RR)",
+                "description": "Boa Vista (RR)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Norte"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Boa Vista (RR)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rr.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "WebSite",
+                                "value": "Boa Vista"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "2.82091245111471",
+                    "location_lon": "-60.671503958062"
+                }
+            },
+            {
+                "host": "Webservice Campo Grande",
+                "name": "Webservice Campo Grande (MS)",
+                "description": "Campo Grande (MS)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Centro \u2013 Oeste"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Campo Grande (MS)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.ms.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-20.429744220834",
+                    "location_lon": "--54.59571076436"
+                }
+            },
+            {
+                "host": "Webservice Curitiba",
+                "name": "Webservice Curitiba (PR)",
+                "description": "Curitiba (PR)",
+                "groups": [
+                    {
+                        "name": "IOS/Firewall"
+                    },
+                    {
+                        "name": "IOS/Sul"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Curitiba (PR)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.pr.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "--25.43081699874",
+                    "location_lon": "-49.211239400474"
+                }
+            },
+            {
+                "host": "Webservice Espirito Santo",
+                "name": "Webservice Espirito Santo (SC)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Nordeste"
+                    },
+                    {
+                        "name": "IOS/Sudeste"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Espirito Santo (SC)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://detran.es.gov.br/",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "santa catarina"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-27.474571788719",
+                    "location_lon": "-48.714442381475"
+                }
+            },
+            {
+                "host": "Webservice Porto Alegre",
+                "name": "Webservice Porto Alegre (RS)",
+                "description": "Porto Alegre (RS)",
+                "groups": [
+                    {
+                        "name": "IOS/Sul"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "Porto Alegre (RS)",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://www.detran.rs.gov.br/inicial",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": {
+                    "location_lat": "-30.103158209964",
+                    "location_lon": "-51.253659899918"
+                }
+            },
+            {
+                "host": "Webservice STG",
+                "name": "Webservice STG (RJ)",
+                "groups": [
+                    {
+                        "name": "Comercial/Webservice"
+                    },
+                    {
+                        "name": "IOS/Sistemas"
+                    },
+                    {
+                        "name": "IOS/WebSite"
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "SGE - PDPJ",
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Pagina Inicial",
+                                "url": "https://gateway.stg.cloud.pje.jus.br/previdenciario-api/pdpj/info",
+                                "status_codes": "200"
+                            }
+                        ],
+                        "tags": [
+                            {
+                                "tag": "Website",
+                                "value": "PDPJ"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "triggers": [
+            {
+                "expression": "count(/Acesso Sistema SP/web.test.rspcode[Sao Paulo (SP),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\nlast(/Acesso Sistema SP/web.test.fail[Sao Paulo (SP)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.sp.gov.br/wps/portal/portaldetran/cidadao/home/!ut/p/z1/jdBdi4JQEAbgX-Ot8-qROHZ3-tK1Fbdi085NWNhRUE-orX-_aGNhoaS5m-F5Z2BIUkKyTn8KlXaFrtPy1u_kaB-sMPV9bn9Ga8_FioeRZ29sIGQU3wFelADJd_IDQA6vj0neCXOwcSeWAJ9vFxB8zRbWPLKxxAP8nfCs2RTCdZzwI1gyuOwB",
+                "priority": "HIGH",
+                "description": "##### HABILITAR  PROBLEMA######\n\ncount(/Acesso Sistema SP/web.test.rspcode[Sao Paulo (SP),Pagina Inicial],#3,\"ne\",\"300\")=3\nor\nlast(/Acesso Sistema SP/web.test.fail[Sao Paulo (SP)])<>0\n\n###### RESOLVER PROBLEMA #########\ncount(/Acesso Sistema SP/web.test.rspcode[Sao Paulo (SP),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\nlast(/Acesso Sistema SP/web.test.fail[Sao Paulo (SP)])<>0",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Sao Paulo"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Correio Boa Vista/web.test.rspcode[Boa Vista (RR),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Correio Boa Vista/web.test.fail[Boa Vista (RR)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rr.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Boa Vista"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Correio Joao Pessoa/web.test.rspcode[Joao Pessoa (PB),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Correio Joao Pessoa/web.test.fail[Joao Pessoa (PB)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://detran.pb.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Joao Pessoa"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Correio Maceio/web.test.rspcode[Maceio (AL),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Correio Maceio/web.test.fail[Maceio (AL)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.al.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Maceio"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Correio Porto Velho/web.test.rspcode[Porto Velho (RO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Correio Porto Velho/web.test.fail[Porto Velho (RO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ro.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "porto velho"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Belo Horizonte/web.test.rspcode[Belo Horizonte (MG),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Belo Horizonte/web.test.fail[Belo Horizonte (MG)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mg.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Belo Horizonte"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Boa Vista/web.test.rspcode[Boa Vista (RR),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Boa Vista/web.test.fail[Boa Vista (RR)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rr.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Boa Vista"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Campo Grande/web.test.rspcode[Campo Grande (MS),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Campo Grande/web.test.fail[Campo Grande (MS)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mt.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Campo Grande"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Espirito Santo/web.test.rspcode[Espirito Santo (SC),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Espirito Santo/web.test.fail[Espirito Santo (SC)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ba.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "netclean.2"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Fortaleza/web.test.rspcode[Fortaleza (CE),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Fortaleza/web.test.fail[Fortaleza (CE)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ce.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Fortaleza"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Palmas/web.test.rspcode[Palmas (TO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Palmas/web.test.fail[Palmas (TO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Palmas"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Rio de Janeiro/web.test.rspcode[Rio de Janeiro (RJ),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Rio de Janeiro/web.test.fail[Rio de Janeiro (RJ)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rj.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Rio de Janeiro"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Sao Luis/web.test.rspcode[Sao Luis (MA),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Sao Luis/web.test.fail[Sao Luis (MA)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "http://www.detran.ma.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Sao Luis"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Detran Vitoria/web.test.rspcode[Vitoria (ES),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Detran Vitoria/web.test.fail[Vitoria (ES)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://detran.es.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Vitoria"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/DNS1/web.test.rspcode[Goiania (GO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/DNS1/web.test.fail[Goiania (GO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.go.gov.br/psw/#/pages/pagina-inicial",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Goiania"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/DNS2/web.test.rspcode[Palmas (TO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/DNS2/web.test.fail[Palmas (TO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Palmas"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/DNS3/web.test.rspcode[Palmas (TO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/DNS3/web.test.fail[Palmas (TO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "service",
+                        "value": "dns3"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/DNS4/web.test.rspcode[Cuiaba (MT),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\nlast(/DNS4/web.test.fail[Cuiaba (MT)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mt.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "service",
+                        "value": "dns4"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link Algar.1/web.test.rspcode[Cuiaba (MT),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\nlast(/Link Algar.1/web.test.fail[Cuiaba (MT)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mt.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "algar.1"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link Algar.2/web.test.rspcode[Rio Branco (AC),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Link Algar.2/web.test.fail[Rio Branco (AC)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ac.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "algar.2"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link NetClean.1/web.test.rspcode[Porto Velho (RO),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Link NetClean.1/web.test.fail[Porto Velho (RO)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ro.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "netclean.1"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link NetClean.2/web.test.rspcode[Salvador (BA),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Link NetClean.2/web.test.fail[Salvador (BA)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ba.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "netclean.2"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link OI.1/web.test.rspcode[Porto Alegre (RS),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Link OI.1/web.test.fail[Porto Alegre (RS)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rs.gov.br/inicial",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "oi.1"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Link OI.2/web.test.rspcode[Recife (PE),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Link OI.2/web.test.fail[Recife (PE)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.pe.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "link",
+                        "value": "oi.2"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Natal Contabil/web.test.rspcode[Natal (RN),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Natal Contabil/web.test.fail[Natal (RN)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "http://www.detran.rn.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Natal"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Teresina Contabil/web.test.rspcode[Teresina (PI),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Teresina Contabil/web.test.fail[Teresina (PI)])<>0",
+                "name": "Detran de {HOST.HOST} - Pagina Indisponivel",
+                "url": "http://www.detran.pi.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Teresina"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/e-commerce.2/web.test.fail[Facebook])<>0\nor\ncount(/e-commerce.2/web.test.rspcode[Facebook,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "Radio Enlace RS - SP (Redund\u00e2ncia)",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Submarino"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/Sistema de comunicacao/web.test.fail[CBN])<>0\nor\ncount(/Sistema de comunicacao/web.test.rspcode[CBN,Pagina Inicial],#2,\"ne\",\"200\")=2",
+                "name": "Sistema de Comunica\u00e7\u00e3o (Shield)\t- Indispon\u00edvel}",
+                "priority": "HIGH",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "CBN"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/e-commerce.3/web.test.fail[Facebook])<>0\nor\ncount(/e-commerce.3/web.test.rspcode[Facebook,Pagina Inicial],#2,\"ne\",\"200\")=2",
+                "name": "Sistema {HOST.HOST - Indispon\u00edvel}",
+                "priority": "HIGH",
+                "description": "and\nnodata(/CBN/web.test.fail[CBN],2m)=1",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Facebook"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/e-commerce1/web.test.fail[AliExpress])<>0\nor\ncount(/e-commerce1/web.test.rspcode[AliExpress,Pagina Inicial],#2,\"ne\",\"200\")=2",
+                "name": "Sistema {HOST.HOST - Indispon\u00edvel}",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "AliExpress"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/Servidor de Streem/web.test.fail[YouTube])<>0\nor\ncount(/Servidor de Streem/web.test.rspcode[YouTube,Pagina Inicial],#2,\"ne\",\"200\")=2",
+                "name": "Sistema {HOST.HOST - Indispon\u00edvel}",
+                "priority": "HIGH",
+                "description": "and\nnodata(/CBN/web.test.fail[CBN],2m)=1",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "YouTube"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Bruce Lee/web.test.rspcode[Aracaju (SE),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Bruce Lee/web.test.fail[Aracaju (SE)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.detran.se.gov.br/#gsc.tab=0",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Aracaju"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Chuck Norris/web.test.rspcode[Macapa (AP),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Chuck Norris/web.test.fail[Macapa (AP)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.detran.ap.gov.br/detranap/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Belem"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Jack Chan/web.test.rspcode[Curitiba (PR),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Jack Chan/web.test.fail[Curitiba (PR)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "http//www.detran.pr.gov.br",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Curitiba"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Jet Li/web.test.rspcode[Distrito Federal (DF),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Jet Li/web.test.fail[Distrito Federal (DF)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "http://www.detran.df.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Distrito Federal"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Schwarzenegger/web.test.rspcode[Florianopolis (SC),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Schwarzenegger/web.test.fail[Florianopolis (SC)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.detran.sc.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Florianopolis"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Stallone/web.test.rspcode[Fortaleza (CE),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Stallone/web.test.fail[Fortaleza (CE)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.detran.ce.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Fortaleza"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Steve Segal/web.test.rspcode[Belem (PA),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Steve Segal/web.test.fail[Belem (PA)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.detran.pa.gov.br/index_.php",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Macapa"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Firewall Vandame/web.test.rspcode[Manaus (AM),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Firewall Vandame/web.test.fail[Manaus (AM)])<>0",
+                "name": "{HOST.HOST} - Indisponivel",
+                "url": "https://www.to.gov.br/detran/veiculo/53kid48vh0hc",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "Manaus"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Sistema STG/web.test.rspcode[SGE - PDPJ,Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Sistema STG/web.test.fail[SGE - PDPJ])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://gateway.stg.cloud.pje.jus.br/previdenciario-api/pdpj/info",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "pdpj"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Belem/web.test.rspcode[Macapa (AP),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Belem/web.test.fail[Macapa (AP)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ap.gov.br/detranap/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "webservice",
+                        "value": "Belem"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Belo Horizonte/web.test.rspcode[Belo Horizonte (MG),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Belo Horizonte/web.test.fail[Belo Horizonte (MG)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mg.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Belo Horizonte"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Boa Vista/web.test.rspcode[Boa Vista (RR),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Boa Vista/web.test.fail[Boa Vista (RR)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rr.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Boa Vista"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Campo Grande/web.test.rspcode[Campo Grande (MS),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Campo Grande/web.test.fail[Campo Grande (MS)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.mt.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Campo Grande"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Curitiba/web.test.rspcode[Curitiba (PR),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Curitiba/web.test.fail[Curitiba (PR)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "http//www.detran.pr.gov.br",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Curitiba"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Espirito Santo/web.test.rspcode[Espirito Santo (SC),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Espirito Santo/web.test.fail[Espirito Santo (SC)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.ba.gov.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Espirito Santo"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice Porto Alegre/web.test.rspcode[Porto Alegre (RS),Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice Porto Alegre/web.test.fail[Porto Alegre (RS)])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://www.detran.rs.gov.br/inicial",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "Porto Alegre"
+                    }
+                ]
+            },
+            {
+                "expression": "count(/Webservice STG/web.test.rspcode[SGE - PDPJ,Pagina Inicial],#3,\"ne\",\"200\")=3\nor\n\nlast(/Webservice STG/web.test.fail[SGE - PDPJ])<>0",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url": "https://gateway.stg.cloud.pje.jus.br/previdenciario-api/pdpj/info",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Webservice",
+                        "value": "stg"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/1 CTA/web.test.fail[1\u00ba CTA])<>0\nor\ncount(/1 CTA/web.test.rspcode[1\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "http://www.1cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "1 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/2 CTA/web.test.fail[2\u00ba CTA])<>0\nor\ncount(/2 CTA/web.test.rspcode[2\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "http://www.2cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "2 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/3 CTA/web.test.fail[3\u00ba CTA])<>0\nor\ncount(/3 CTA/web.test.rspcode[3\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://3cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "3 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/4 CTA/web.test.fail[4\u00ba CTA])<>0\nor\ncount(/4 CTA/web.test.rspcode[4\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://4cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "4 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/5 CTA/web.test.fail[5\u00ba CTA])<>0\nor\ncount(/5 CTA/web.test.rspcode[5\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://5cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "5 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/6 CTA/web.test.fail[6\u00ba CTA])<>0\nor\ncount(/6 CTA/web.test.rspcode[6\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://6cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "6 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/7 CTA/web.test.fail[7\u00ba CTA])<>0\nor\ncount(/7 CTA/web.test.rspcode[7\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "http://www.7cta.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "7 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/11 CTA/web.test.fail[11\u00ba CTA])<>0\nor\ncount(/11 CTA/web.test.rspcode[11\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "http://www.11ct.eb.mil.br",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "11 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/21 CTA/web.test.fail[21\u00ba CTA])<>0\nor\ncount(/21 CTA/web.test.rspcode[21\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://21ct.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "21 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/41 CTA/web.test.fail[41\u00ba CTA])<>0\nor\ncount(/41 CTA/web.test.rspcode[41\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://41ct.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "41 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/51 CTA/web.test.fail[51\u00ba CTA])<>0\nor\ncount(/51 CTA/web.test.rspcode[51\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://51ct.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "51 CTA"
+                    }
+                ]
+            },
+            {
+                "expression": "last(/52 CTA/web.test.fail[52\u00ba CTA])<>0\nor\ncount(/52 CTA/web.test.rspcode[52\u00ba CTA,Pagina Inicial],#1,\"ne\",\"200\")=1",
+                "name": "{HOST.HOST} - Pagina Indisponivel",
+                "url_name": "https://52ct.eb.mil.br/",
+                "priority": "HIGH",
+                "manual_close": "YES",
+                "tags": [
+                    {
+                        "tag": "Website",
+                        "value": "52 CTA"
+                    }
+                ]
+            }
+        ]
+    }
+}
